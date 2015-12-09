@@ -90,7 +90,13 @@ public class NoteDriver {
                         + "l - lydian scale\n"
                         + "m - mixolydian scale\n"
                         + "a - aeolian scale (minor)\n"
-                        + "L - Locrian scale\n"
+                        + "L - Locrian scale\n\n"
+
+                        + "P - Major Pentatonic scale\n"
+                        + "M - Minor Pentatonic scale\n\n"
+                        + "B - Major Blues Pentatonic scale\n"
+                        + "b - Minor Blues Pentatonic scale\n\n"
+                        + "D - Diatonic scale\n"
                         + "f - print fretboard\n"
                         + "n - print specific note\n"
                         + "q - Quit the program\n";
@@ -185,7 +191,63 @@ public class NoteDriver {
                     in.nextLine();
                     break;
                 }
+                case 'P':  {
+                    System.out.println("Please enter a note");
+                    try{
+                        String note = in.next();
+                        fretboard.printMajorPentatonicScale(note, table);
+                    } catch (ScaleAlgorithm.NoSuchNoteException e){
+                        System.out.println("You entered an invalid note");
+                    }
+                    in.nextLine();
+                    break;
+                }
+                case 'M':  {
+                    System.out.println("Please enter a note");
+                    try{
+                        String note = in.next();
+                        fretboard.printMinorPentatonicScale(note, table);
+                    } catch (ScaleAlgorithm.NoSuchNoteException e){
+                        System.out.println("You entered an invalid note");
+                    }
+                    in.nextLine();
+                    break;
+                }
 
+                case 'B':  {
+                    System.out.println("Please enter a note");
+                    try {
+                        String note = in.next();
+                        fretboard.printMajorBluesPentatonicScale(note, table);
+                    } catch (ScaleAlgorithm.NoSuchNoteException e){
+                        System.out.println("You entered an invalid note");
+                    }
+                    in.nextLine();
+                    break;
+                }
+
+                case 'b':  {
+                    System.out.println("Please enter a note");
+                    try {
+                        String note = in.next();
+                        fretboard.printMinorBluesPentatonicScale(note, table);
+                    } catch (ScaleAlgorithm.NoSuchNoteException e){
+                        System.out.println("You entered an invalid note");
+                    }
+                    in.nextLine();
+                    break;
+                }
+                case 'D':  {
+                    System.out.println("Please enter a note");
+                    try {
+                        String note = in.next();
+                        fretboard.printDiatonicScale(note, table);
+                    } catch (ScaleAlgorithm.NoSuchNoteException e){
+                        System.out.println("You entered an invalid note");
+                    }
+                    in.nextLine();
+                    break;
+                }
                 case 'n':  {
                     System.out.println("Please enter a note");
                     try{

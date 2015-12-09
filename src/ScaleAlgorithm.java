@@ -64,6 +64,152 @@ public class ScaleAlgorithm {
         return noteIndex;
     }
 
+    public static Note[] allNotes(String note, NoteHashTable table) {
+        int i = getNote(note);
+        Note[] notes = new Note[9];
+        int noteIndex = 0;
+        while (i < 98) {
+            Note key = new Note("", 0, 0, i);
+
+            if (table.find(key) != null) {
+                notes[noteIndex++] = table.find(key);
+                i+=12;
+            }
+        }
+        return notes;
+    }
+
+    public static Note[] generateBluesPentatonicScale(String note, NoteHashTable table, int offset){
+        int i = getNote(note);
+        if (i == -1)
+            throw new NoSuchNoteException();
+        int scaleIndex = 0;
+        Note[] scale = new Note[58];
+        while (i < 98) {
+            Note Root = new Note("", 0, 0, i + offset);
+            Note Three = new Note("", 0, 0, i + 2 + offset);
+            Note Five = new Note("", 0, 0, i + 4 + offset);
+            Note FlatSeventh = new Note("", 0, 0, i + 3 + offset);
+            Note Seventh = new Note("", 0, 0, i + 7 + offset);
+            Note Ninth = new Note("", 0, 0, i + 9 + offset);
+
+
+            if (table.find(Root) != null)
+                scale[scaleIndex++] = table.find(Root);
+            if (table.find(Three) != null)
+                scale[scaleIndex++] = table.find(Three);
+            if (table.find(Five) != null)
+                scale[scaleIndex++] = table.find(Five);
+            if (table.find(FlatSeventh) != null)
+                scale[scaleIndex++] = table.find(FlatSeventh);
+            if (table.find(Seventh) != null)
+                scale[scaleIndex++] = table.find(Seventh);
+            if (table.find(Ninth) != null)
+                scale[scaleIndex++] = table.find(Ninth);
+            i += 12;
+        }
+        return scale;
+    }
+
+    public static Note[] generateDiatonicScale(String note, NoteHashTable table, int offset){
+        int i = getNote(note);
+        if (i == -1)
+            throw new NoSuchNoteException();
+        int scaleIndex = 0;
+        Note[] scale = new Note[58];
+        while (i < 98) {
+            Note Root = new Note("", 0, 0, i + offset);
+            Note Three = new Note("", 0, 0, i + 2 + offset);
+            Note Five = new Note("", 0, 0, i + 4 + offset);
+            Note FlatSeventh = new Note("", 0, 0, i + 5 + offset);
+            Note Seventh = new Note("", 0, 0, i + 7 + offset);
+            Note Ninth = new Note("", 0, 0, i + 9 + offset);
+            Note Flat = new Note("", 0, 0, i + 11 + offset);
+
+
+            if (table.find(Root) != null)
+                scale[scaleIndex++] = table.find(Root);
+            if (table.find(Three) != null)
+                scale[scaleIndex++] = table.find(Three);
+            if (table.find(Five) != null)
+                scale[scaleIndex++] = table.find(Five);
+            if (table.find(FlatSeventh) != null)
+                scale[scaleIndex++] = table.find(FlatSeventh);
+            if (table.find(Seventh) != null)
+                scale[scaleIndex++] = table.find(Seventh);
+            if (table.find(Ninth) != null)
+                scale[scaleIndex++] = table.find(Ninth);
+            if (table.find(Ninth) != null)
+                scale[scaleIndex++] = table.find(Flat);
+            i += 12;
+        }
+        return scale;
+    }
+
+    public static Note[] generatePentatonicScale(String note, NoteHashTable table, int offset){
+        int i = getNote(note);
+        if (i == -1)
+            throw new NoSuchNoteException();
+        int scaleIndex = 0;
+        Note[] scale = new Note[58];
+        while (i < 98) {
+            Note Note1 = new Note("", 0, 0, i + offset);
+            Note Note2 = new Note("", 0, 0, i + 2 + offset);
+            Note Note3 = new Note("", 0, 0, i + 4 + offset);
+            Note Note4 = new Note("", 0, 0, i + 7 + offset);
+            Note Note5 = new Note("", 0, 0, i + 9 + offset);
+
+
+            if (table.find(Note1) != null)
+                scale[scaleIndex++] = table.find(Note1);
+            if (table.find(Note2) != null)
+                scale[scaleIndex++] = table.find(Note2);
+            if (table.find(Note3) != null)
+                scale[scaleIndex++] = table.find(Note3);
+            if (table.find(Note4) != null)
+                scale[scaleIndex++] = table.find(Note4);
+            if (table.find(Note5) != null)
+                scale[scaleIndex++] = table.find(Note5);
+            i += 12;
+        }
+        return scale;
+    }
+
+    public static Note[] generateMajorScale(String note, NoteHashTable table, int offset) {
+        int i = getNote(note);
+        if (i == -1)
+            throw new NoSuchNoteException();
+        int scaleIndex = 0;
+        Note[] scale = new Note[58];
+        while (i < 98) {
+            Note Tonic = new Note("", 0, 0, i + offset);
+            Note Supertonic = new Note("", 0, 0, i + 2 + offset);
+            Note Mediant = new Note("", 0, 0, i + 4 + offset);
+            Note Subdominant = new Note("", 0, 0, i + 5 + offset);
+            Note Dominant = new Note("", 0, 0, i + 7 + offset);
+            Note Submediant = new Note("", 0, 0, i + 9 + offset);
+            Note Leading = new Note("", 0, 0, i + 11 + offset);
+
+            if (table.find(Tonic) != null)
+                scale[scaleIndex++] = table.find(Tonic);
+            if (table.find(Supertonic) != null)
+                scale[scaleIndex++] = table.find(Supertonic);
+            if (table.find(Mediant) != null)
+                scale[scaleIndex++] = table.find(Mediant);
+            if (table.find(Subdominant) != null)
+                scale[scaleIndex++] = table.find(Subdominant);
+            if (table.find(Dominant) != null)
+                scale[scaleIndex++] = table.find(Dominant);
+            if (table.find(Submediant) != null)
+                scale[scaleIndex++] = table.find(Submediant);
+            if (table.find(Leading) != null)
+                scale[scaleIndex++] = table.find(Leading);
+            i += 12;
+        }
+        return scale;
+
+    }
+
     public static Note[] ionianScale(String note, NoteHashTable table) {
         int offset = 0;
         return generateMajorScale(note, table, offset);
@@ -101,39 +247,29 @@ public class ScaleAlgorithm {
         return generateMajorScale(note, table, offset);
     }
 
-    public static Note[] generateMajorScale(String note, NoteHashTable table, int offset) {
-        int i = getNote(note);
-        if (i == -1)
-            throw new NoSuchNoteException();
-        int scaleIndex = 0;
-        Note[] scale = new Note[58];
-        while (i < 98) {
-            Note Tonic = new Note("", 0, 0, i + offset);
-            Note Supertonic = new Note("", 0, 0, i + 2 + offset);
-            Note Mediant = new Note("", 0, 0, i + 4 + offset);
-            Note Subdominant = new Note("", 0, 0, i + 5 + offset);
-            Note Dominant = new Note("", 0, 0, i + 7 + offset);
-            Note Submediant = new Note("", 0, 0, i + 9 + offset);
-            Note Leading = new Note("", 0, 0, i + 11 + offset);
+    public static Note[] minorPentatonicScale(String note, NoteHashTable table){
+        int offset = 3;
+        return generatePentatonicScale(note, table, offset);
+    }
 
-            if (table.find(Tonic) != null)
-                scale[scaleIndex++] = table.find(Tonic);
-            if (table.find(Supertonic) != null)
-                scale[scaleIndex++] = table.find(Supertonic);
-            if (table.find(Mediant) != null)
-                scale[scaleIndex++] = table.find(Mediant);
-            if (table.find(Subdominant) != null)
-                scale[scaleIndex++] = table.find(Subdominant);
-            if (table.find(Dominant) != null)
-                scale[scaleIndex++] = table.find(Dominant);
-            if (table.find(Submediant) != null)
-                scale[scaleIndex++] = table.find(Submediant);
-            if (table.find(Leading) != null)
-                scale[scaleIndex++] = table.find(Leading);
-            i += 12;
-        }
-        return scale;
+    public static Note[] majorPentatonicScale(String note, NoteHashTable table){
+        int offset = 0;
+        return generatePentatonicScale(note, table, offset);
+    }
 
+    public static Note[] majorBluesPentatonicScale(String note, NoteHashTable table){
+        int offset = 0;
+        return generateBluesPentatonicScale(note, table, offset);
+    }
+
+    public static Note[] minorBluesPentatonicScale(String note, NoteHashTable table){
+        int offset = 3;
+        return generateBluesPentatonicScale(note, table, offset);
+    }
+
+    public static Note[] majorDiatonicScale(String note, NoteHashTable table){
+        int offset = 0;
+        return generateDiatonicScale(note, table, offset);
     }
 
     public static class NoSuchNoteException extends RuntimeException {
@@ -179,18 +315,5 @@ public class ScaleAlgorithm {
         return contains;
     }
 
-    public static Note[] allNotes(String note, NoteHashTable table) {
-        int i = getNote(note);
-        Note[] notes = new Note[9];
-        int noteIndex = 0;
-        while (i < 98) {
-            Note key = new Note("", 0, 0, i);
 
-            if (table.find(key) != null) {
-                notes[noteIndex++] = table.find(key);
-                i+=12;
-            }
-        }
-        return notes;
-    }
 }

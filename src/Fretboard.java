@@ -17,59 +17,23 @@ public class Fretboard {
         strings[5] = new GuitarString("E", 2, table);
     }
 
-    public void printFretboard(){
-       for (int i = 0; i < strings.length; i++){
-           System.out.print("|---");
-           for (int j = 0; j < strings[i].String_.length; j++){
-               if (strings[i].String_[j].noteLength == 1)
-                   System.out.print(strings[i].String_[j] + "-----|--");
-               else
-                   System.out.print(strings[i].String_[j] + "-|--");
-           }
-           System.out.println("--|");
-       }
-    }
-
-    public static void printIonianScale(String note, NoteHashTable table){
-        int offset = 0;
-        Note[] scale = ScaleAlgorithm.generateMajorScale(note, table, offset);
-        printScale(scale);
-    }
-
-    public static void printDorianScale(String note, NoteHashTable table){
-        int offset = 2;
-        Note[] scale = ScaleAlgorithm.generateMajorScale(note, table, offset);
-        printScale(scale);
-    }
-
-    public static void printPhrygianScale(String note, NoteHashTable table){
-        int offset = 4;
-        Note[] scale = ScaleAlgorithm.generateMajorScale(note, table, offset);
-        printScale(scale);
-    }
-
-    public static void printLydianScale(String note, NoteHashTable table){
-        int offset = 5;
-        Note[] scale = ScaleAlgorithm.generateMajorScale(note, table, offset);
-        printScale(scale);
-    }
-
-    public static void printMixolydianScale(String note, NoteHashTable table){
-        int offset = 7;
-        Note[] scale = ScaleAlgorithm.generateMajorScale(note, table, offset);
-        printScale(scale);
-    }
-
-    public static void printAeolianScale(String note, NoteHashTable table){
-        int offset = 9;
-        Note[] scale = ScaleAlgorithm.generateMajorScale(note, table, offset);
-        printScale(scale);
-    }
-
-    public static void printLocrianScale(String note, NoteHashTable table) {
-        int offset = 10;
-        Note[] scale = ScaleAlgorithm.generateMajorScale(note, table, offset);
-        printScale(scale);
+    public static void printFretboard() {
+        for (int fret = 0; fret < 24; fret++) {
+            if (fret < 10)
+                System.out.print("      " + fret + "      ");
+            else
+                System.out.print("     " + fret + "      ");
+            for (int i = 0; i < strings.length; i++) {
+                System.out.print("|---");
+                for (int j = 0; j < strings[i].String_.length; j++) {
+                    if (strings[i].String_[j].noteLength == 1)
+                        System.out.print(strings[i].String_[j] + "-----|--");
+                    else
+                        System.out.print(strings[i].String_[j] + "-|--");
+                }
+                System.out.println("--|");
+            }
+        }
     }
 
     public static void printNote(Note[] notes){
@@ -111,25 +75,85 @@ public class Fretboard {
         }
         System.out.println();
         for (int i = 0; i < strings.length; i++)
-            {
+        {
             System.out.print("|");
-                for (int j = 0; j < strings[i].String_.length; j++)
+            for (int j = 0; j < strings[i].String_.length; j++)
+            {
+                if (ScaleAlgorithm.contains(strings[i].String_[j], scale))
                 {
-                    if (ScaleAlgorithm.contains(strings[i].String_[j], scale))
-                    {
-                        if (strings[i].String_[j].noteLength == 1)
-                            System.out.print("----" + strings[i].String_[j] + "-----|");
-                        else
-                            System.out.print("--" +strings[i].String_[j] + "---|");
-                    }
+                    if (strings[i].String_[j].noteLength == 1)
+                        System.out.print("----" + strings[i].String_[j] + "-----|");
                     else
-                    {
-                            System.out.print("------------|");
-                    }
+                        System.out.print("--" +strings[i].String_[j] + "---|");
                 }
-                System.out.println();
+                else
+                {
+                    System.out.print("------------|");
+                }
             }
+            System.out.println();
+        }
         System.out.println("\n");
 
+    }
+
+    public static void printIonianScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.ionianScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printDorianScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.dorianScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printPhrygianScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.phrygianScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printLydianScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.lydianScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printMixolydianScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.mixolydianScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printAeolianScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.aeolianScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printLocrianScale(String note, NoteHashTable table) {
+        Note[] scale = ScaleAlgorithm.locrianScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printMinorPentatonicScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.minorPentatonicScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printMajorPentatonicScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.majorPentatonicScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printMinorBluesPentatonicScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.minorBluesPentatonicScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printMajorBluesPentatonicScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.majorBluesPentatonicScale(note, table);
+        printScale(scale);
+    }
+
+    public static void printDiatonicScale(String note, NoteHashTable table){
+        Note[] scale = ScaleAlgorithm.majorDiatonicScale(note, table);
+        printScale(scale);
     }
 }
