@@ -18,46 +18,47 @@ public class Fretboard {
     }
 
     public static void printFretboard() {
-        for (int fret = 0; fret < 24; fret++) {
-            if (fret < 10)
-                System.out.print("      " + fret + "      ");
+        System.out.print("         1     ");
+        for(int i = 2; i < 24; i++){
+            if (i < 10)
+                System.out.print("      " + i + "     ");
             else
-                System.out.print("     " + fret + "      ");
-            for (int i = 0; i < strings.length; i++) {
-                System.out.print("|---");
-                for (int j = 0; j < strings[i].String_.length; j++) {
-                    if (strings[i].String_[j].noteLength == 1)
-                        System.out.print(strings[i].String_[j] + "-----|--");
-                    else
-                        System.out.print(strings[i].String_[j] + "-|--");
-                }
-                System.out.println("--|");
-            }
+                System.out.print("     " + i + "     ");
         }
+        System.out.println();
+            for (int i = 0; i < strings.length; i++) {
+                System.out.print(strings[i].String_[0] + "|");
+                for (int j = 1; j < strings[i].String_.length; j++) {
+                    if (strings[i].String_[j].noteLength == 1)
+                        System.out.print("----" + strings[i].String_[j] + "----|");
+                    else
+                        System.out.print("--" + strings[i].String_[j] + "--|");
+                }
+                System.out.println();
+            }
     }
 
     public static void printNote(Note[] notes){
-        for(int i = 0; i < 24; i++){
+        System.out.print("         1     ");
+        for(int i = 2; i < 24; i++){
             if (i < 10)
-                System.out.print("      " + i + "      ");
+                System.out.print("      " + i + "     ");
             else
-                System.out.print("     " + i + "      ");
+                System.out.print("     " + i + "     ");
         }
         System.out.println();
-        for (int i = 0; i < strings.length; i++)
-        {
-            System.out.print("|");
-            for (int j = 0; j < strings[i].String_.length; j++)
+        for (int i = 0; i < strings.length; i++) {
+            System.out.print(strings[i].String_[0] + "|");
+            for (int j = 1; j < strings[i].String_.length; j++)
             {
                 if (ScaleAlgorithm.containsNote(strings[i].String_[j], notes)) {
                     if (strings[i].String_[j].noteLength == 1)
-                        System.out.print("----" + strings[i].String_[j] + "-----|");
+                        System.out.print("----" + strings[i].String_[j] + "----|");
                     else
-                        System.out.print("--" +strings[i].String_[j] + "---|");
+                        System.out.print("--" +strings[i].String_[j] + "--|");
                 }
-                else
-                {
-                    System.out.print("------------|");
+                else {
+                    System.out.print("-----------|");
                 }
             }
             System.out.println();
@@ -67,28 +68,29 @@ public class Fretboard {
     }
 
     public static void printScale(Note[] scale){
-        for(int i = 0; i < 24; i++){
+        System.out.print("         1     ");
+        for(int i = 2; i < 24; i++){
             if (i < 10)
-                System.out.print("      " + i + "      ");
+                System.out.print("      " + i + "     ");
             else
-                System.out.print("     " + i + "      ");
+                System.out.print("     " + i + "     ");
         }
         System.out.println();
         for (int i = 0; i < strings.length; i++)
         {
-            System.out.print("|");
-            for (int j = 0; j < strings[i].String_.length; j++)
+            System.out.print(strings[i].String_[0] +"|");
+            for (int j = 1; j < strings[i].String_.length; j++)
             {
                 if (ScaleAlgorithm.contains(strings[i].String_[j], scale))
                 {
                     if (strings[i].String_[j].noteLength == 1)
-                        System.out.print("----" + strings[i].String_[j] + "-----|");
+                        System.out.print("----" + strings[i].String_[j] + "----|");
                     else
-                        System.out.print("--" +strings[i].String_[j] + "---|");
+                        System.out.print("--" +strings[i].String_[j] + "--|");
                 }
                 else
                 {
-                    System.out.print("------------|");
+                    System.out.print("-----------|");
                 }
             }
             System.out.println();

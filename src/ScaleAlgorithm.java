@@ -4,7 +4,6 @@
 
 public class ScaleAlgorithm {
 
-
     public static int getNote(String note) {
         int noteIndex = -1;
         if (note.equalsIgnoreCase("A"))
