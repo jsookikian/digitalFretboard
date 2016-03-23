@@ -10,5 +10,5 @@ After the cloning is complete, all you need to do is run
 ```bash
 sh RunFretboard.sh
 ```
-
+In order for the scales and notes to be printed correctly, you may need to resize the terminal window you are working in.
 
