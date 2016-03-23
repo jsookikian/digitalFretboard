@@ -9,7 +9,7 @@ public class NoteDriver {
     //Main method for the driver to run in.
     public static void main(String args[]) {
             Scanner in = new Scanner(System.in);  //System In Scanner
-            String noteFile = "src/noteData.txt";                    //variable for the file name.
+            String noteFile = "noteData.txt";                    //variable for the file name.
 
             Scanner noteData;                                 //A Scanner to read the file
             try {

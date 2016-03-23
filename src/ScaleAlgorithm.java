@@ -158,7 +158,6 @@ public class ScaleAlgorithm {
             Note Note4 = new Note("", 0, 0, i + 7 + offset);
             Note Note5 = new Note("", 0, 0, i + 9 + offset);
 
-
             if (table.find(Note1) != null)
                 scale[scaleIndex++] = table.find(Note1);
             if (table.find(Note2) != null)
