@@ -5,6 +5,10 @@ A java program to emulate a guitar fretboard and show notes and scales.
 ``` bash
 git clone https://github.com/jsookikian/digitalFretboard.git
 ```
+Then, move into the new directory
+```bash
+cd digitalFretboard
+```
 
 After the cloning is complete, all you need to do is run 
 ```bash
