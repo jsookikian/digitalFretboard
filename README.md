@@ -1,5 +1,5 @@
 # digitalFretboard
-A java program to emulate a guitar fretboard and show notes and scales.
+A java program to emulate a guitar fretboard and show notes and scales. I implemented my own hash-table using open-addressing to handle collisions,
 
 ##To Run
 Copy the repository by running this command in terminal
@@ -18,7 +18,7 @@ sh RunFretboard.sh
 In order for the scales and notes to be printed correctly, you may need to resize the terminal window you are working in.
 
 ##Usage
-As soon as you run the program, you will be prompted with a menu. Select any of the choices (case-sensitive) to select that scale or tyep 'n' to print a specific note. 
+As soon as you run the program, you will be prompted with a menu. Select any of the choices (case-sensitive) to select that scale or type 'n' to print a specific note. 
 
 
 ```
