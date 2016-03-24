@@ -10,7 +10,7 @@ Then, move into the new directory
 cd digitalFretboard
 ```
 
-After the cloning is complete, all you need to do is run 
+After the cloning is complete, all you need to do is run this script to run the program
 ``` bash
 sh RunFretboard.sh
 ```
