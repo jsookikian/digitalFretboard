@@ -1,5 +1,5 @@
 # digitalFretboard
-A java program to emulate a guitar fretboard and show notes and scales. I implemented my own hash-table using open-addressing to handle collisions,
+A java program to emulate a guitar fretboard and show notes and scales. I implemented my own hash-table using open-addressing to handle collisions, and created my own algorithms to calculate each individual scale.
 
 ##To Run
 Copy the repository by running this command in terminal
